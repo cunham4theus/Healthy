@@ -1,0 +1,268 @@
+@use 'mixins' as *;
+
+html {
+  font-size: 52%;
+  @include respond(tab-port) {
+    font-size: 62.5%;
+  }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  max-height: 100vh;
+  font-family: 'Josefin Sans';
+}
+
+ul {
+  list-style: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 140rem;
+  margin: 0 auto;
+  align-items: center;
+  padding: 4rem 2rem;
+
+  @include respond(phone) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 6rem;
+    position: relative;
+
+    @include respond(tab-port) {
+      font-size: 14rem;
+    }
+
+    &::after {
+      content: '';
+      width: 6rem;
+      height: 6rem;
+      position: absolute;
+      background-image: url('/assets/img/Healthy-Care-Vector-PNG-Images-HD.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right;
+      top: 0.5rem;
+      right: -6rem;
+
+      @include respond(tab-port) {
+        font-size: 16rem;
+        width: 10rem;
+        height: 10rem;
+        top: 3rem;
+        right: -10rem;
+      }
+    }
+  }
+
+  &__nav {
+    font-size: 2.6rem;
+    padding-right: 4rem;
+    li {
+      display: flex;
+      align-items: center;
+      height: 6rem;
+
+      a {
+        text-decoration: none;
+        border-radius: 3rem;
+        transform: scale(1);
+      }
+    }
+  }
+}
+.container {
+  display: flex;
+  max-width: 180rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  position: relative;
+
+  h1 {
+    font-size: 3.8rem;
+  }
+  p {
+    font-size: 2.2rem;
+  }
+
+  &__calculator {
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    margin-top: 6rem;
+    padding-inline: 2rem;
+    position: relative;
+
+    @include respond(tab-port) {
+      margin-top: 16rem;
+    }
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: white;
+      top: 0;
+      left: 0;
+      opacity: 0.6;
+      padding: 3rem 1rem;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    &__engine {
+      margin-top: 2rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      &--content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 10;
+
+        @include respond(tab-port) {
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 2rem;
+        }
+
+        label {
+          font-size: 2.4rem;
+          margin-bottom: 1rem;
+          @include respond(tab-port) {
+            margin-left: 4rem;
+          }
+        }
+
+        input {
+          font-size: 2.2rem;
+          padding: 0.3rem;
+          border-radius: 5px;
+          border-bottom: 1px solid black;
+
+          &:checked {
+            border: none;
+          }
+        }
+      }
+      button {
+        text-decoration: none;
+        border: none;
+        font-size: 2.4rem;
+        align-self: center;
+        cursor: pointer;
+
+        @include respond(tab-port) {
+          align-self: end;
+        }
+      }
+
+      &--result {
+        display: flex;
+        font-size: 2.6rem;
+        width: 100%;
+        height: 6rem;
+        border-bottom: 1px solid black;
+        align-items: end;
+        z-index: 10;
+      }
+    }
+  }
+
+  &__img {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 80rem;
+    background-image: url('/assets/img/oiesjo_fitness_woman_teenager_looking_to_the_side_background_wh_2fa2623c-eb75-4d60-abb5-cf4ec0ff9fc0-PhotoRoom.png-PhotoRoom.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    z-index: -2;
+
+    @include respond(phone) {
+      background-position: top left;
+      max-width: 100rem;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4rem;
+  &__media {
+    font-size: 6rem;
+    display: flex;
+    gap: 4rem;
+    li {
+      a {
+        color: #000;
+        transition: ease-in-out .2s;
+        &:hover {
+          color: #c21111;
+        }
+      }
+    }
+  }
+
+  &__copy {
+    font-size: 2rem;
+    margin-top: -4rem;
+    padding-left: 4rem;
+  }
+}
+
+.btn {
+  border-radius: 3rem;
+  color: azure;
+  background-color: #c21111;
+  z-index: 999;
+  padding: 0.8rem 2rem;
+  transition: ease-in-out 0.3s;
+  position: relative;
+  text-align: center;
+  @include respond(phone) {
+    padding: 1rem 4rem;
+  }
+
+  &::after {
+    content: '';
+    width: 110%;
+    height: 100%;
+    position: absolute;
+    background-color: #c21111;
+    top: -2px;
+    right: -5%;
+    border-radius: 4rem;
+    opacity: 1;
+    z-index: -1;
+    transform: scale(1);
+    border: 1px solid rgb(#fff, 0.5);
+  }
+
+  &:hover::after {
+    opacity: 0;
+    transform: scale(1.3);
+    transition: ease-in-out 0.4s;
+  }
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}
