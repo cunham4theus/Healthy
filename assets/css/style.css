@@ -25,12 +25,12 @@ ul {
   max-width: 140rem;
   margin: 0 auto;
   align-items: center;
-  padding: 4rem 2rem;
 }
 @media (min-width: 37.5rem) {
   .header {
     flex-direction: row;
     justify-content: space-between;
+    padding: 4rem 2rem;
   }
 }
 .header__logo {
@@ -84,6 +84,7 @@ ul {
   justify-content: space-between;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
 }
 .container h1 {
   font-size: 3.8rem;
@@ -96,12 +97,13 @@ ul {
   flex-direction: column;
   max-width: 50rem;
   margin-top: 6rem;
-  padding-inline: 2rem;
   position: relative;
+  padding: 0 2rem;
 }
 @media (min-width: 56.2rem) {
   .container__calculator {
     margin-top: 16rem;
+    padding-inline: 2rem;
   }
 }
 .container__calculator::after {
@@ -202,14 +204,21 @@ ul {
   flex-direction: column;
   align-items: center;
   padding-top: 4rem;
+  text-align: center;
 }
 .footer__media {
   font-size: 6rem;
+  padding: 0;
   display: flex;
   gap: 4rem;
 }
+.footer__media li {
+  display: flex;
+  justify-content: space-between;
+}
 .footer__media li a {
   color: #000;
+  width: 100%;
   transition: ease-in-out 0.2s;
 }
 .footer__media li a:hover {
@@ -218,7 +227,6 @@ ul {
 .footer__copy {
   font-size: 2rem;
   margin-top: -4rem;
-  padding-left: 4rem;
 }
 
 .btn {
